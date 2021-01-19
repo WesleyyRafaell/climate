@@ -1,0 +1,177 @@
+.container{
+  min-width: 385px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .background{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  filter: blur(151px);
+  background: url('../images/rainy.jpg')center center/cover no-repeat;
+}
+
+.cardWeather{
+  position: relative;
+  max-width: 1070px;
+  width: 100%;
+  height: 470px;
+  /* background: rebeccapurple; */
+  background: url('../images/rainy.jpg')center center/cover no-repeat;
+
+  display: flex;
+}
+
+.containerPicture{
+  width: 60%;
+}
+
+.containerPicture .pictureInformation{
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  padding: 0 0px 50px 50px;
+  background: linear-gradient(15deg, #00000042, transparent, transparent);
+}
+
+.containerPicture .pictureInformation p{
+  color: #fff;
+}
+
+.containerPicture .pictureInformation > p:first-child{
+  font-size: 80px;
+  padding-right: 10px;
+}
+
+.containerPicture .pictureInformation > p:nth-child(2){
+  font-size: 40px;
+  line-height: 90px;
+}
+
+.containerPicture .pictureInformation .weatherConditions{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.containerPicture .pictureInformation .weatherConditions img{
+  height: 60px;
+}
+
+.containerDetails{
+  width: 40%;
+  background: #0000008c;
+  padding: 0 30px;
+}
+
+.containerDetails .containerForm .inputBlock{
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 1.7px solid #1d1d1d;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.containerDetails .containerForm .inputBlock input{
+  background: none;
+  border: none;
+  flex: 1;
+  outline: none;
+  height: 39px;
+  color: #ababab!important;
+  font-size: 17.3px!important;
+}
+
+.containerDetails .containerForm .inputBlock input:placeholder{
+  color: #ababab!important;
+  font-size: 17.3px!important;
+}
+
+.containerDetails .containerForm .inputBlock button{
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: #1d1d1d url('../images/icons/loupe.png')center center/16.5px no-repeat;
+  outline: none;
+  color: #fff;
+}
+
+.containerDetails  .detailsHeather{
+  padding-top: 20px;
+}
+
+.containerDetails  .detailsHeather h4{
+  color: #fff;
+}
+
+.containerDetails  .detailsHeather .detailsHeatherContainer{
+  padding-top: 20px;
+}
+
+.detailsHeatherContainer .detailsBlock{
+  display: flex;
+  justify-content: space-between;
+  padding: 5.5px 0;
+}
+
+.detailsHeatherContainer .detailsBlock p{
+  color: #ababab;
+  font-size: 16.8px;
+}
+
+
+
+@media screen and (max-width: 800px){
+  .container{
+    padding: 0 40px;
+  }
+
+  .cardWeather{
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .containerPicture,
+  .containerDetails{
+    width: 100%;
+  }
+
+  .containerPicture .pictureInformation{
+    justify-content: center;
+    background: linear-gradient(-175deg, #00000042, transparent, transparent);
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0px 0px 0px;
+    text-align: center;
+  }
+
+  .containerPicture .pictureInformation > p:first-child{
+    font-size: 44.6px;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  .containerPicture .pictureInformation > p:nth-child(2){
+    font-size: 22.5px;
+    line-height: 0;
+  }
+
+  .containerPicture .pictureInformation .weatherConditions{
+    padding-left: 0;
+    padding-top: 14.1px;
+  }
+
+  .containerDetails{
+    padding-bottom: 10px;
+  }
+
+
+}

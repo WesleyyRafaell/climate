@@ -3,10 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <title>Climate</title>
 </head>
 <body>
-  
+  <main>
+    <div class="container">
+      <div class="background"></div>
+      <div class="cardWeather">
+        <div class="containerPicture">
+          <div class="pictureInformation">
+            <p>28º</p>
+            <p>São Luís</p>
+            <div class="weatherConditions">
+              <img src="images/icons/10d@2x.png" alt="weather conditions">
+              <p>light rain</p>
+            </div>
+          </div>
+        </div>
+        <div class="containerDetails">
+          <div class="containerForm">
+            <div class="inputBlock">
+              <input type="text" placeholder="Type name city here">
+              <button type="submit"></button>
+            </div>
+          </div>
+          <div class="detailsHeather">
+            <h4>Heather Details</h4>
+            <div class="detailsHeatherContainer">
+              <div class="detailsBlock">
+                <p>Humidity:</p>
+                <p>74</p>
+              </div>
+              <div class="detailsBlock">
+                <p>Pressure:</p>
+                <p>1011</p>
+              </div>
+              <div class="detailsBlock">
+                <p>Temp. max:</p>
+                <p>302.15</p>
+              </div>
+              <div class="detailsBlock">
+                <p>Temp. min:</p>
+                <p>302.15</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
   <script src="index.js"></script>
 </body>
 </html>
