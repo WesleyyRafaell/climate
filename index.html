@@ -6,8 +6,8 @@
   <link rel="stylesheet" href="styles/index.css">
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/icons/10d@2x.png">
   <title>Climate</title>
 </head>
 <body>
@@ -17,39 +17,41 @@
       <div class="cardWeather">
         <div class="containerPicture">
           <div class="pictureInformation">
-            <p>28º</p>
-            <p>São Luís</p>
+            <p id="temperature">0</p>
+            <p id="cityName">City</p>
             <div class="weatherConditions">
               <img src="images/icons/10d@2x.png" alt="weather conditions">
-              <p>light rain</p>
+              <p id="descriptionWeather">light rain</p>
             </div>
           </div>
         </div>
         <div class="containerDetails">
           <div class="containerForm">
-            <div class="inputBlock">
-              <input type="text" placeholder="Type name city here">
-              <button type="submit"></button>
-            </div>
+            <form id="form">
+              <div class="inputBlock">
+                <input id="input" type="text" placeholder="Type name city here">
+                <button id="button" type="submit"></button>
+              </div>
+            </form>
           </div>
           <div class="detailsHeather">
             <h4>Heather Details</h4>
             <div class="detailsHeatherContainer">
               <div class="detailsBlock">
                 <p>Humidity:</p>
-                <p>74</p>
+                <p id="humidity">74</p>
               </div>
               <div class="detailsBlock">
-                <p>Pressure:</p>
-                <p>1011</p>
+                <p>Wind:</p>
+                <p id="speed">1011</p>
               </div>
               <div class="detailsBlock">
                 <p>Temp. max:</p>
-                <p>302.15</p>
+                <p id="tempmax">302.15</p>
               </div>
               <div class="detailsBlock">
                 <p>Temp. min:</p>
-                <p>302.15</p>
+                <p id="tempmin">302.15</p>
               </div>
             </div>
           </div>
