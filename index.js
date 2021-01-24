@@ -7,6 +7,9 @@ const $humidity = searchDom('#humidity');
 const $speed = searchDom('#speed');
 const $tempmax = searchDom('#tempmax');
 const $tempmin = searchDom('#tempmin');
+const $cardError = searchDom('.cardError');
+const $closeCardErro = searchDom('.closeCardErro');
+const $textError = searchDom('.textError');
 
 const baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
 const apiKey = '8f5e6de9230285a98d0544d469bd972b';
@@ -17,13 +20,17 @@ $form.addEventListener('submit', (event)=> {
   const nameCityInput = $input.value;
 
   if(nameCityInput == ''){
-    alert("field cannot be empty");
+    cityNotFound("field cannot be empty");
     return;
   }
 
   callApi(nameCityInput)
 
   $input.value = '';
+})
+
+$closeCardErro.addEventListener('click', ()=>{
+  cityNotFound();
 })
 
 
@@ -33,31 +40,37 @@ function callApi(nameCity){
         return response.json();
       })
       .then((data)=> {
-        manipulateData(data);
+        createDataStructure(data);
       })
       .catch((error)=>{
-        console.log('Deu ruim: ', error)
+        // console.log('Deu ruim: ', error)
+        cityNotFound("City not found");
       })
 }
 
 
-function manipulateData(data){
-  const newTem = transformKelvinToCelcius(data.main.temp.toFixed(0));
-  $temperature.innerText = `${newTem}º`
+function createDataStructure({main, name, weather, wind}){
+  const  weatherInformation = {
+    temperature: transformKelvinToCelcius(main.temp.toFixed(0)),
+    cityName: name,
+    descriptionClimate: weather[0].description,
+    humidity: main.humidity,
+    speed: transformMsToKm(wind.speed.toFixed(0)),
+    tempmax: transformKelvinToCelcius(main.temp_max.toFixed(0)),
+    tempmin: transformKelvinToCelcius(main.temp_min.toFixed(0))
+  }
 
-  $cityName.innerText = data.name;
-  $descriptionWeather.innerText = data.weather[0].description;
-  $humidity.innerText = `${data.main.humidity}%`;
+  insertInformationIntoDom(weatherInformation)
+}
 
-  const newSpeed = transformMsToKm(data.wind.speed.toFixed(0))
-  $speed.innerText = `${newSpeed} km/h`;
-
-  const newTempMax = transformKelvinToCelcius(data.main.temp_max.toFixed(0));
-  $tempmax.innerText = `${newTempMax}º`;
-
-  const newTempMin = transformKelvinToCelcius(data.main.temp_min.toFixed(0));
-  $tempmin.innerText = `${newTempMin}º`;
-
+function insertInformationIntoDom({temperature, cityName, descriptionClimate, humidity, speed, tempmax, tempmin}){
+  $temperature.innerText = `${temperature}º`
+  $cityName.innerText = cityName;
+  $descriptionWeather.innerText = descriptionClimate;
+  $humidity.innerText = `${humidity}%`;
+  $speed.innerText = `${speed} km/h`;
+  $tempmax.innerText = `${tempmax}º`;
+  $tempmin.innerText = `${tempmin}º`;
 }
 
 function transformKelvinToCelcius(temp){
@@ -68,6 +81,14 @@ function transformKelvinToCelcius(temp){
 function transformMsToKm(speed){
   const speedInKm = speed * 3.6;
   return speedInKm;
+}
+
+
+function cityNotFound(textError){
+  if(textError != null){
+    $textError.innerText = textError
+  }
+  $cardError.classList.toggle('toggleCardError')
 }
 
 function searchDom(caminho){

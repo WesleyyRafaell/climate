@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .container .background{
@@ -127,6 +128,54 @@
   font-size: 16.8px;
 }
 
+.containerError{
+  position: absolute;
+  width: 100vw;
+  height: 90px;
+  top: 0;
+  left: 0;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+  
+.containerError .cardError{
+  position: relative;
+  width: 100%;
+  max-width: 330px;
+  height: 70px;
+  border-radius: 6.1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #464646 url('../images/icons/exclamation-mark.png')13.2px center/43.8px no-repeat;
+
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.toggleCardError{
+  opacity: 1!important;
+}
+
+.containerError .cardError p{
+  color: #ababab;
+  font-weight: 600;
+  font-size: 18.4px;
+}
+
+.containerError .closeCardErro{
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e2574c url('../images/icons/close.png')center center/10px no-repeat;
+  cursor: pointer;
+}
 
 
 @media screen and (max-width: 800px){
