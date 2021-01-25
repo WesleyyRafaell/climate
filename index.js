@@ -57,7 +57,6 @@ function manipulateData(data){
 
   const newTempMin = transformKelvinToCelcius(data.main.temp_min.toFixed(0));
   $tempmin.innerText = `${newTempMin}º`;
-
 }
 
 function transformKelvinToCelcius(temp){
