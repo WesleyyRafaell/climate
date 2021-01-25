@@ -59,10 +59,17 @@ function createDataStructure({main, name, weather, wind}){
     tempmax: transformKelvinToCelcius(main.temp_max.toFixed(0)),
     tempmin: transformKelvinToCelcius(main.temp_min.toFixed(0))
   }
+  insertInformationIntoDom(weatherInformation)
+}
 
-  const newTempMin = transformKelvinToCelcius(data.main.temp_min.toFixed(0));
-  $tempmin.innerText = `${newTempMin}º`;
-
+function insertInformationIntoDom({temperature, cityName, descriptionClimate, humidity, speed, tempmax, tempmin}){
+  $temperature.innerText = `${temperature}º`
+  $cityName.innerText = cityName;
+  $descriptionWeather.innerText = descriptionClimate;
+  $humidity.innerText = `${humidity}%`;
+  $speed.innerText = `${speed} km/h`;
+  $tempmax.innerText = `${tempmax}º`;
+  $tempmin.innerText = `${tempmin}º`;
 }
 
 function transformKelvinToCelcius(temp){
