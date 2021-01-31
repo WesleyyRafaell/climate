@@ -10,6 +10,7 @@ const $tempmin = searchDom('#tempmin');
 const $cardError = searchDom('.cardError');
 const $closeCardErro = searchDom('.closeCardErro');
 const $textError = searchDom('.textError');
+const $containerSpinner = searchDom('.containerSpinner');
 
 const baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
 const apiKey = '8f5e6de9230285a98d0544d469bd972b';
@@ -35,12 +36,13 @@ $closeCardErro.addEventListener('click', ()=>{
 
 
 function callApi(nameCity){
+  waitApiResponse('wait')
   fetch(`${baseUrl}?q=${nameCity}&appid=${apiKey}`)
       .then((response)=> {  
         return response.json();
       })
       .then((data)=> {
-        createDataStructure(data);
+        waitApiResponse(data);
       })
       .catch((error)=>{
         // console.log('Deu ruim: ', error)
@@ -70,6 +72,16 @@ function insertInformationIntoDom({temperature, cityName, descriptionClimate, hu
   $speed.innerText = `${speed} km/h`;
   $tempmax.innerText = `${tempmax}º`;
   $tempmin.innerText = `${tempmin}º`;
+}
+
+function waitApiResponse(response){
+  if(response === 'wait'){
+    $containerSpinner.classList.add('open')
+    return
+  }
+  $containerSpinner.classList.remove('open')
+
+  createDataStructure(response)
 }
 
 function transformKelvinToCelcius(temp){
