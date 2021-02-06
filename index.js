@@ -17,6 +17,13 @@ const $cardWeather = searchDom('.cardWeather');
 const baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
 const apiKey = '8f5e6de9230285a98d0544d469bd972b';
 
+
+function init(){
+  callApi('São Luís');
+}
+
+init()
+
 $form.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -97,10 +104,27 @@ function transformMsToKm(speed) {
   return speedInKm;
 }
 
+const knownDescription = [
+  'clear sky',
+  'few clouds',
+  'scattered clouds',
+  'broken clouds',
+  'shower rain',
+  'rain',
+  'thunderstorm',
+  'snow',
+  'mist'
+]
+
 function changeBackground(description) {
-  const str = description.replace(/\s/g, '');
-  $background.style.background = `url('images/${str}.jpg')center center/cover no-repeat`;
-  $cardWeather.style.background = `url('images/${str}.jpg')center center/cover no-repeat`;
+  knownDescription.map(item => {
+    // console.log(item, description)
+    if(item === description){
+      const str = description.replace(/\s/g, '');
+      $background.style.background = `url('images/${str}.jpg')center center/cover no-repeat`;
+      $cardWeather.style.background = `url('images/${str}.jpg')center center/cover no-repeat`;
+    }
+  })
 }
 
 

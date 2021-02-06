@@ -14,7 +14,7 @@
   width: 100vw;
   height: 100vh;
   filter: blur(151px);
-  background: url('../images/rainy.jpg')center center/cover no-repeat;
+  /* background: url('../images/showerrain.jpg')center center/cover no-repeat; */
 }
 
 .cardWeather{
@@ -22,7 +22,7 @@
   max-width: 1070px;
   width: 100%;
   height: 470px;
-  background: url('../images/rainy.jpg')center center/cover no-repeat;
+  /* background: url('../images/showerrain.jpg')center center/cover no-repeat; */
   display: flex;
 }
 
