@@ -22,7 +22,7 @@ function init(){
   callApi('São Luís');
 }
 
-init()
+init();
 
 $form.addEventListener('submit', (event) => {
     event.preventDefault();
